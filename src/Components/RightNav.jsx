@@ -54,7 +54,7 @@ const RightNav = () => {
       {/* bg color */}
 
       <div className="mt-5 relative">
-            <img className="w-full absolute h-[31.8rem]" src= {bg} alt="" />
+            <img className="w-full absolute h-full" src= {bg} alt="" />
 
              <div className="relative text-white">
                  <div className="flex flex-col justify-center items-center text-center px-10 py-16">
