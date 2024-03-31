@@ -5,13 +5,13 @@ import three from "../assets/3.png"
 import { BsCalendar3 } from "react-icons/bs";
 const LeftNav = () => {
   return (
-    <div className='mr-6'>
+    <div className=''>
       <div>
-        <ul className="menu rounded-box w-full">
+        <ul className="menu mt-[-1rem] w-full">
           <li>
-            <h2 className="menu-title text-xl font-semibold leading-7 text-[#403F3F]">All Caterogy</h2>
+            <h2 className="menu-title text-xl font-semibold leading-7 text-[#403F3F] mb-5">All Caterogy</h2>
             <ul className='text-xl font-medium leading-7 text-[#9F9F9F] flex flex-col gap-7'>
-              <li className='py-2 px-8 rounded-lg bg-[#E7E7E7] text-[#403F3F] font-semibold'><a>National News</a></li>
+              <li className='py-2 px-10 rounded-lg bg-[#E7E7E7] text-[#403F3F] font-semibold'><a>National News</a></li>
               <li><a>Breaking News</a></li>
               <li><a>Regular News</a></li>
               <li><a>International News</a></li>

@@ -43,10 +43,10 @@ const Header = () => {
 
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex gap-10">
-            <li>Home</li>
-            <li>About</li>
-            <li>Career</li>
+          <ul className="menu menu-horizontal px-1 flex gap-10 text-[#706F6F] text-lg leading-7 font-normal">
+            <li className='hover:text-red-500 hover:font-semibold'>Home</li>
+            <li className='hover:text-red-500 hover:font-semibold'>About</li>
+            <li className='hover:text-red-500 hover:font-semibold'>Career</li>
           </ul>
         </div>
         <div className="navbar-end">
