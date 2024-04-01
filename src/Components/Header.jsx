@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 import user from '../assets/user.png';
 import moment from 'moment';
 import Marquee from 'react-fast-marquee';
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -44,14 +44,14 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-10 text-[#706F6F] text-lg leading-7 font-normal">
-            <li className='hover:text-red-500 hover:font-semibold'>Home</li>
+            <Link to='/'> <li className='hover:text-red-500 hover:font-semibold'>Home</li></Link>
             <li className='hover:text-red-500 hover:font-semibold'>About</li>
             <li className='hover:text-red-500 hover:font-semibold'>Career</li>
           </ul>
         </div>
         <div className="navbar-end">
           <img className="w-10 h-10 mr-2" src={user} alt="User" />
-          <a className="btn">Login</a>
+          <Link to='/login'><a className="btn">Login</a></Link>
         </div>
       </div>
     </div>

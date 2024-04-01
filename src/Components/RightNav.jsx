@@ -35,17 +35,17 @@ const RightNav = () => {
         </div>
       </div>
 
-         {/* Q zone */}
+      {/* Q zone */}
 
       <div className="bg-[#F3F3F3] px-2 py-1 rounded-xl w-full mt-5">
 
         <div>
-        
+
           <div className="flex flex-col gap-3 px-2 py-3">
-          <p className="font-semibold text-xl leading-7 ">Q-Zone</p>
-              <img src={qZone1} alt="" />
-              <img src={qZone2} alt="" />
-              <img src={qZone3} alt="" />
+            <p className="font-semibold text-xl leading-7 ">Q-Zone</p>
+            <img src={qZone1} alt="" />
+            <img src={qZone2} alt="" />
+            <img src={qZone3} alt="" />
           </div>
         </div>
 
@@ -54,19 +54,19 @@ const RightNav = () => {
       {/* bg color */}
 
       <div className="mt-5 relative">
-            <img className="w-full absolute h-full" src= {bg} alt="" />
+        <img className="w-full absolute h-full rounded-md" src={bg} alt="" />
 
-             <div className="relative text-white">
-                 <div className="flex flex-col justify-center items-center text-center px-10 py-16">
-                 <h1 className="font-bold text-3xl leading-[2.8rem] mb-5">Create an Amazing Newspaper</h1>
+        <div className="relative text-white">
+          <div className="flex flex-col justify-center items-center text-center px-10 py-16">
+            <h1 className="font-bold text-3xl leading-[2.8rem] mb-5">Create an Amazing Newspaper</h1>
 
-                 <p className="font-normal text-base leading-7">
-                 Discover thousands of options, easy to customize layouts, one-click to import demo and much more.
-                 </p>
+            <p className="font-normal text-base leading-7">
+              Discover thousands of options, easy to customize layouts, one-click to import demo and much more.
+            </p>
 
-                 <button className="btn mt-12 btn-secondary bg-red-500"> Learn More</button>
-                 </div>
-             </div>
+            <button className="btn mt-12 btn-secondary bg-red-500"> Learn More</button>
+          </div>
+        </div>
       </div>
 
     </div>

@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import one from "../assets/1.png"
 import two from "../assets/2.png"
 import three from "../assets/3.png"
 import { BsCalendar3 } from "react-icons/bs";
+
 const LeftNav = () => {
+
+  // const [catagory , setCatagory ] = useState([])
+
+  // useEffect(() => {
+  //   fetch ("http://localhost:5000/data")
+  //    .then(res => res.json())
+  //    .then(data => {
+  //       setCatagory(data)
+  //       console.log(catagory)
+  //     })
+  //     .catch((er) => console.log(er.message))
+  // },[])
+
   return (
     <div className=''>
       <div>
@@ -20,6 +34,14 @@ const LeftNav = () => {
               <li><a>Culture</a></li>
               <li><a>Arts</a></li>
               <li><a>All News</a></li>
+
+              {/* {
+                catagory.map((item) => {
+                  return(
+                    <li><a> {item.name} </a></li>
+                  )
+                })
+              } */}
             </ul>
           </li>
         </ul>

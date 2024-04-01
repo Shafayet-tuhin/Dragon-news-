@@ -19,7 +19,7 @@ const Main = () => {
           </div>
 
           <div className="col-span-3">
-            <RightNav />z
+            <RightNav />
           </div>
         </div>
       </div>
