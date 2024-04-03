@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter, FaTwitterSquare } from "react-icons/fa";
 import qZone1 from '../assets/qZone1.png';
 import qZone2 from "../assets/qZone2.png";
 import qZone3 from "../assets/qZone3.png";
 import bg from "../assets/bg.png";
+import { AuthContext } from "../Context/AuthProvider";
 
 
 const RightNav = () => {
+
+  const { signInWithGoogle} = useContext(AuthContext)
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+  }
+
   return (
     <div>
 
       <div >
         <h2 className="text-xl font-semibold leading-7">Login With</h2>
-        <button className="btn btn-outline btn-primary mt-4 mb-2 w-full">
+        <button className="btn btn-outline btn-primary mt-4 mb-2 w-full" onClick={handleGoogleLogin}>
           <FaGoogle />
           Login with Google
         </button>
@@ -33,7 +41,7 @@ const RightNav = () => {
             <li><button className="py-4 px-14 border border-gray-200"><FaInstagram />Instagram</button></li>
           </ul>
         </div>
-      </div>
+      </div> 
 
       {/* Q zone */}
 

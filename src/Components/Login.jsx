@@ -1,66 +1,139 @@
-import React from 'react'
-import user from '../assets/user.png';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import user1 from "../assets/user.png";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Context/AuthProvider";
+import Swal from "sweetalert2";
+
 const Login = () => {
+
+    const { signInUser, user, signInWithGoogle ,resetPassword } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const [email, setEmail] = useState(null)
+
+    const handleLogin = (e) => {
+
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        console.log(email, password)
+
+        signInUser(email, password)
+            .then((res) => {
+
+                Swal.fire({
+                    title: "Login successful",
+                    icon: "success"
+                  });
+                console.log(res)
+                navigate('/')
+            })
+            .catch((err) => console.log(err.message))
+
+    };
+
+    const handleGoogle = () => {
+        signInWithGoogle()
+            .then((res) => {
+                Swal.fire({
+                    title: "Login successful",
+                    icon: "success"
+                  });
+                console.log(res.user)
+                navigate('/')
+            })
+            .catch((err) => console.log(err.message))
+    }
+
+    const handleReset = () => {
+
+        Swal.fire({
+            title: "Please check your email",
+            icon: "success"
+          });
+
+        resetPassword(email)
+    }
+
     return (
-        <div className='bg-[#F3F3F3]'>
-
-
-            <div className='flex justify-between mx-[20%] py-[1%]'>
-
+        <div className="bg-[#F3F3F3]">
+            <div className="flex justify-between mx-[20%] py-[1%]">
                 <div></div>
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-10 text-[#706F6F] text-lg leading-7 font-normal">
-                        <Link to='/'> <li className='hover:text-red-500 hover:font-semibold'>Home</li></Link>
-                        <li className='hover:text-red-500 hover:font-semibold'>About</li>
-                        <li className='hover:text-red-500 hover:font-semibold'>Career</li>
+                        <Link to="/">
+                            {" "}
+                            <li className="hover:text-red-500 hover:font-semibold">Home</li>
+                        </Link>
+                        <li className="hover:text-red-500 hover:font-semibold">About</li>
+                        <li className="hover:text-red-500 hover:font-semibold">Career</li>
                     </ul>
                 </div>
                 <div className="flex gap-2">
-                    <img className="w-10 h-10 mr-2" src={user} alt="User" />
+                    <img className="w-10 h-10 mr-2" src={user1} alt="User" />
                     <a className="btn">Login</a>
                 </div>
             </div>
-
 
             <div>
                 <div className="hero min-h-screen">
                     <div className="hero-content flex-col">
                         <div className="text-center ">
                             <h1 className="text-5xl font-bold mb-4">Login your account</h1>
-
                         </div>
                         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <form className="card-body">
+                            <form className="card-body" onSubmit={handleLogin}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" placeholder="email" className="input input-bordered" required />
+                                    <input
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        type="email"
+                                        name="email"
+                                        placeholder="email"
+                                        className="input input-bordered"
+                                        required
+                                    />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" placeholder="password" className="input input-bordered" required />
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="password"
+                                        className="input input-bordered"
+                                        required
+                                    />
+                                    <label className="label" onClick={handleReset}>
+                                        <a href="#" className="label-text-alt link link-hover">
+                                            Forgot password?
+                                        </a>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
-                                <p> Dont have an account ? <Link className="text-blue-500" to='/register'>Click here</Link> </p>
+                                <p>
+                                    {" "}
+                                    Dont have an account ?{" "}
+                                    <Link className="text-blue-500" to="/register">
+                                        Click here
+                                    </Link>{" "}
+                                </p>
 
                                 <div className="flex justify-center">
-                                    <div >
-                                        <h2 className=" text-sky-700">Or Login Using</h2>
+                                    <div>
+                                        <h2 className=" text-gray-700">Or Login Using</h2>
                                         <div className="flex gap-5 justify-center mt-2 text-2xl">
-                                            <button  className=""><FcGoogle /> </button>
-                                            <button  className=""><FaGithub /> </button>
+                                            <button className="flex gap-2 items-center  bg-gray-300 text-3xl w-full justify-center py-2 rounded-2xl" onClick={handleGoogle}>
+                                                <FcGoogle />
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -69,9 +142,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

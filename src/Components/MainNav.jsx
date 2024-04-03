@@ -42,7 +42,7 @@ const MainNav = () => {
                         <p className='mt-8 text-[#706F6F] font-normal text-base leading-6'>Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News) – U.S. President Joe Biden has announced nearly $3 billion in new U.S. military a... </p>
 
                         <Link to='/details' >
-                            <button className='font-semibold text-base leading-6 text-[#FF8C47]'>Read More</button>
+                            <button className='font-semibold text-base leading-6 text-[#FF8C47] animate-bounce'>Read More</button>
                         </Link>
                     </div>
 
