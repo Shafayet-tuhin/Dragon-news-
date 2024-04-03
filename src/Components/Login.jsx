@@ -11,6 +11,7 @@ const Login = () => {
     const { signInUser, user, signInWithGoogle ,resetPassword } = useContext(AuthContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState(null)
+    const [error, setError] = useState(null);
 
     const handleLogin = (e) => {
 
@@ -30,7 +31,7 @@ const Login = () => {
                 console.log(res)
                 navigate('/')
             })
-            .catch((err) => console.log(err.message))
+            .catch((err) => setError("Please enter a valid mail or password"))
 
     };
 
@@ -116,9 +117,13 @@ const Login = () => {
                                         </a>
                                     </label>
                                 </div>
-                                <div className="form-control mt-6">
+                                {error && <p className="text-red-500 text-base">{error}</p>}
+                                <div className="form-control mt-2">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
+
+                              
+
                                 <p>
                                     {" "}
                                     Dont have an account ?{" "}
