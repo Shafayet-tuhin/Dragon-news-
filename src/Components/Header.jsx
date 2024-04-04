@@ -67,10 +67,10 @@ const Header = () => {
           </div>
           <div className="navbar-end">
             <div className="flex gap-2 items-center">
-              <img className="w-10 h-10 mr-2 rounded-full" src={
+             <Link to='/about'>  <img className="w-10 h-10 mr-2 rounded-full" src={
                 user && user.photoURL ? user.photoURL : user1
                 
-              } alt="User" />
+              } alt="User" /></Link>
              {
               user ?  <Link to='/login' ><button className="btn bg-slate-300 " onClick={handleLogout}>Log Out</button></Link>
               : <Link to='/login' ><a className="btn bg-slate-300 animate-bounce">Login</a></Link>

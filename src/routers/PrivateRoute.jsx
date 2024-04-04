@@ -1,18 +1,25 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../Context/AuthProvider'
-import { Navigate } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
+const PrivateRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
 
-const PrivateRoute = ({children}) => {
+    const error = () => {
+        Swal.fire({
+            icon: "error",
+            title: "Please Login first",
+        });
+    };
 
-    const {user , loading} = useContext(AuthContext) 
- 
+    if (user) {
+        return children;
+    } 
+    
+        error(); 
+        return <Navigate to="/login" />;
+   
+};
 
-    if ( user) {
-        return children 
-    }
-
-    return <Navigate to= '/login' />
-}
-
-export default PrivateRoute
+export default PrivateRoute;
