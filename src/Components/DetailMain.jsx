@@ -63,12 +63,12 @@ const DetailMain = () => {
             <div className='mt-7 flex gap-2'>
 
 
-                <div className='flex flex-col gap-5'>
-                    <img className='w-full h-[9.375rem]' src={one} alt="" />
+                <div className='flex flex-col lg:gap-5'>
+                    <img className='w-full h-[5rem] lg:h-[9.375rem]' src={one} alt="" />
 
-                    <p className='font-semibold text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
+                    <p className='font-semibold text-sm lg:text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
 
-                    <div className='flex gap-5 font-medium text-base leading-6 text-center'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5 font-medium  text-sm lg:text-base leading-6 text-center text-slate-400'>
                         <p>Sports</p>
 
                         <div className='flex gap-2 items-center text-[#9F9F9F]'>
@@ -83,12 +83,12 @@ const DetailMain = () => {
 
 
 
-                <div className='flex flex-col gap-5'>
-                    <img className='w-full h-[9.375rem]' src={two} alt="" />
+                <div className='flex flex-col lg:gap-5'>
+                    <img className='w-full h-[5rem] lg:h-[9.375rem]' src={two} alt="" />
 
-                    <p className='font-semibold text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
+                    <p className='font-semibold text-sm lg:text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
 
-                    <div className='flex gap-5 font-medium text-base leading-6 text-center'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5 font-medium  text-sm lg:text-base leading-6 text-center text-slate-400'>
                         <p>Sports</p>
 
                         <div className='flex gap-2 items-center text-[#9F9F9F]'>
@@ -102,12 +102,12 @@ const DetailMain = () => {
 
 
 
-                <div className='flex flex-col gap-5'>
-                    <img className='w-full h-[9.375rem]' src={three} alt="" />
+                <div className='flex flex-col lg:gap-5'>
+                    <img className='w-full h-[5rem] lg:h-[9.375rem]' src={three} alt="" />
 
-                    <p className='font-semibold text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
+                    <p className='font-semibold text-sm lg:text-xl text-[#403F3F]'>Bayern Slams Authorities Over Flight Delay to Club World Cup</p>
 
-                    <div className='flex gap-5 font-medium text-base leading-6 text-center'>
+                    <div className='flex flex-col lg:flex-row lg:gap-5 font-medium  text-sm lg:text-base leading-6 text-center text-slate-400'>
                         <p>Sports</p>
 
                         <div className='flex gap-2 items-center text-[#9F9F9F]'>

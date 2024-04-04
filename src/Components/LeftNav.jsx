@@ -19,7 +19,7 @@ const LeftNav = () => {
   // },[])
 
   return (
-    <div className=''>
+    <div >
       <div>
         <ul className="menu mt-[-1rem] w-full">
           <li>

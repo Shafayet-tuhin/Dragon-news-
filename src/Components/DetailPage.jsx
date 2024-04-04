@@ -5,10 +5,13 @@ import RightNav from './RightNav'
 import Footer from './Footer'
 const DetailPage = () => {
     return (
-        <div className='flex flex-col justify-center items-center mx-[5%]'>
+        <div className='flex flex-col justify-center items-center'>
             <Header />
             <div className="mx-auto px-4">
-                <div className="grid grid-cols-12 gap-8 ">
+                <div className='lg:hidden'>
+                    <DetailMain />
+                </div>
+                <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 ">
 
                     <div className="col-span-8">
                         <DetailMain />
@@ -19,7 +22,7 @@ const DetailPage = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

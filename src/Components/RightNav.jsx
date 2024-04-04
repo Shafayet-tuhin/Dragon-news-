@@ -16,7 +16,7 @@ const RightNav = () => {
   }
 
   return (
-    <div>
+    <div className="">
 
       <div >
         <h2 className="text-xl font-semibold leading-7">Login With</h2>
