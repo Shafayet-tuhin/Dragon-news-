@@ -8,57 +8,66 @@ const AuthProvider = ({ children }) => {
 
     const googleProvider = new GoogleAuthProvider()
 
-    const [user , setUser ] = useState(null)
-    const [loading , setLoading] = useState(true) 
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch("db.json")
+            .then((res) => res.json())
+            .then((data) => setData(data))
+    }, [])
 
 
-    const createUser = ( email , password) => {
-        setLoading(true) ;
-        return createUserWithEmailAndPassword(auth, email, password) 
-    }
-
-    const signInUser = (email , password) => {
-        return signInWithEmailAndPassword(auth, email, password) ;
-    }
-
-    const signInWithGoogle = ( ) => { 
+    const createUser = (email, password) => {
         setLoading(true);
-        return signInWithPopup(auth , googleProvider)
-     }
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
-     const logOut = () => {
-        setLoading(true) 
-        signOut(auth) 
-     }
+    const signInUser = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
 
-     const resetPassword = (email) => { 
-        sendPasswordResetEmail(auth , email)
-        .then((res) => {
-             console.log(res)
-        })
-        .catch((err) => {
-             console.log(err.message)
-        })
+    const signInWithGoogle = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    const logOut = () => {
+        setLoading(true)
+        signOut(auth)
+    }
+
+    const resetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth , (curUser) => {
-             setUser(curUser)
-             setLoading(false)
+        const unsubscribe = onAuthStateChanged(auth, (curUser) => {
+            setUser(curUser)
+            setLoading(false)
         })
         return () => {
             unsubscribe()
         }
-    },[])
- 
+    }, [])
+
     const obj = {
-        createUser ,
-        user ,
+        createUser,
+        user,
         loading,
         signInUser,
         signInWithGoogle,
         logOut,
-        resetPassword
+        resetPassword,
+        data
 
     }
 

@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import LeftNav from "./LeftNav";
 import RightNav from "./RightNav";
-import MainNav from "./MainNav";
+import MainNav from "./MainNav/MainNav";
 
 const Main = () => {
   return (
