@@ -5,10 +5,10 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
-
+import { FaEye ,FaEyeSlash } from "react-icons/fa6";
 const Login = () => {
 
-    const { signInUser, user, signInWithGoogle, resetPassword } = useContext(AuthContext)
+    const { signInUser, user, signInWithGoogle, resetPassword , eye , setEye } = useContext(AuthContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState(null)
     const [error, setError] = useState(null);
@@ -57,7 +57,10 @@ const Login = () => {
 
         resetPassword(email)
     }
-
+    const handleSee = (e) => {
+        e.preventDefault();
+        setEye(!eye);
+    }
     return (
         <div className="bg-[#F3F3F3]">
 
@@ -128,13 +131,22 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        placeholder="password"
-                                        className="input input-bordered"
-                                        required
-                                    />
+                                    <div className="flex items-center gap-4">
+                                        <input
+                                            type= {eye ? "password": "text"}
+                                            name="password"
+                                            placeholder="password"
+                                            className="input input-bordered"
+                                            required
+                                        />
+                                       
+                                       <button onClick={handleSee}>
+                                                   {
+                                                     eye ? <FaEye/> : <FaEyeSlash/>
+                                                   }
+                                       </button>
+
+                                    </div>
                                     <label className="label" onClick={handleReset}>
                                         <a href="#" className="label-text-alt link link-hover">
                                             Forgot password?

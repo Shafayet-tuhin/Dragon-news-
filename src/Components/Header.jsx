@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import auth from "../firebase/firebase.config";
 import { AuthContext } from "../Context/AuthProvider";
-
+import nonuser from '../assets/nonuser.svg'
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -67,10 +67,12 @@ const Header = () => {
           </div>
           <div className="navbar-end">
             <div className="flex gap-2 items-center">
-             <Link to='/about'>  <img className="w-10 h-10 mr-2 rounded-full" src={
-                user && user.photoURL ? user.photoURL : user1
+             <Link to='/about'> 
+             {user ?  <img className={user && user.photoURL  ? "w-10 h-10 mr-2 rounded-full" : "w-8 h-8 "} src={
+                user && user.photoURL ? user.photoURL : nonuser
                 
-              } alt="User" /></Link>
+              } alt="User" />: <img className= "w-10 h-10 mr-2 rounded-full"  src={ user1 } alt="User" />}
+             </Link>
              {
               user ?  <Link to='/login' ><button className="btn bg-slate-300 " onClick={handleLogout}>Log Out</button></Link>
               : <Link to='/login' ><a className="btn bg-slate-300 animate-bounce">Login</a></Link>

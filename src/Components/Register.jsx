@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { FaEye ,FaEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser , eye, setEye } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 
@@ -20,10 +21,7 @@ const Register = () => {
         console.log("checkbox", checkbox);
 
         if (!checkbox) {
-            Swal.fire({
-                icon: "error",
-                title: "You must agree to the terms and conditions",
-            });
+          setError("You must agree to the terms and conditions")
             return;
         }
 
@@ -51,6 +49,11 @@ const Register = () => {
             })
             .catch((er) => setError("Email is already in use"));
     };
+
+    const handleSee = (e) => {
+        e.preventDefault();
+        setEye(!eye);
+    }
 
     return (
         <div className="bg-[#F3F3F3]">
@@ -110,18 +113,27 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        placeholder="password"
-                                        className="input input-bordered"
-                                        required
-                                    />
+                                    <div className="flex items-center gap-4">
+                                        <input
+                                            type= {eye ? "password": "text"}
+                                            name="password"
+                                            placeholder="password"
+                                            className="input input-bordered"
+                                            required
+                                        />
+                                       
+                                       <button onClick={handleSee}>
+                                                   {
+                                                     eye ? <FaEye/> : <FaEyeSlash/>
+                                                   }
+                                       </button>
+
+                                    </div>
 
                                     <label className=" flex gap-2 items-center py-2">
                                         <input
                                             type="checkbox"
-                                            
+
                                             name="checkbox"
                                             className="checkbox"
                                         />
@@ -129,18 +141,19 @@ const Register = () => {
                                             Accept terms and conditions
                                         </span>
                                     </label>
+                                    {error && <p className="text-red-500 text-base">{error}</p>}
                                     <p className="mt-2">
-                                        {" "}
-                                        Already have an account ?{" "}
-                                        <Link className="text-blue-500" to="/login">
+                                        
+                                        Already have an account ?
+                                        <Link className="text-blue-800 ml-2" to="/login">
                                             Click here
-                                        </Link>{" "}
+                                        </Link>
                                     </p>
 
-                                    {error && <p className="text-red-500 text-base">{error}</p>}
+                                
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-primary">Register</button>
                                 </div>
                             </form>
                         </div>

@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-
+    const [eye, setEye] = useState(false)
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -67,7 +67,9 @@ const AuthProvider = ({ children }) => {
         signInWithGoogle,
         logOut,
         resetPassword,
-        data
+        data,
+        eye, 
+        setEye
 
     }
 

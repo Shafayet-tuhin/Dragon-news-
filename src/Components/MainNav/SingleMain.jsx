@@ -11,11 +11,11 @@ import { useNavigate } from "react-router-dom";
 const SingleMain = (item) => {
 
     const data = item.item;
-    
+
     const navigate = useNavigate()
 
     const handleRead = () => {
-      navigate('/details' , {state:{item: item}})
+        navigate('/details', { state: { item: item } })
     }
 
     return (
