@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("db.json")
+        fetch("https://the-news-dragon-server-q6p2g87rl-shafayet-tuhins-projects.vercel.app/news")
             .then((res) => res.json())
             .then((data) => setData(data))
     }, [])
